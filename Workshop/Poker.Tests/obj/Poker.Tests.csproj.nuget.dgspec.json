@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/Poker.Tests.csproj": {}
+  },
+  "projects": {
+    "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/Poker.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/Poker.Tests.csproj",
+        "projectName": "Poker.Tests",
+        "projectPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/Poker.Tests.csproj",
+        "packagesPath": "/Users/keith/.nuget/packages/",
+        "outputPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/keith/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[5.10.0, )"
+            },
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.2.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
