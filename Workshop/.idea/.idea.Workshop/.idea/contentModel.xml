@@ -18,8 +18,8 @@
             </e>
           </e>
         </e>
+        <e p="Poker.cs" t="Include" />
         <e p="Poker.csproj" t="IncludeRecursive" />
-        <e p="Program.cs" t="Include" />
       </e>
       <e p="Poker.Tests" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -31,7 +31,7 @@
           </e>
         </e>
         <e p="Poker.Tests.csproj" t="IncludeRecursive" />
-        <e p="UnitTest1.cs" t="Include" />
+        <e p="PokerTests.cs" t="Include" />
       </e>
       <e p="Workshop.sln" t="IncludeFlat" />
     </e>

@@ -27,7 +27,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj": {
+                "projectPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -60,6 +64,59 @@
               "version": "[1.0.1, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj",
+        "projectName": "Poker",
+        "projectPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj",
+        "packagesPath": "/Users/keith/.nuget/packages/",
+        "outputPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/keith/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
           "imports": [
             "net461",
             "net462",

@@ -17,7 +17,11 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "projectReferences": {}
+        "projectReferences": {
+          "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj": {
+            "projectPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj"
+          }
+        }
       }
     },
     "warningProperties": {

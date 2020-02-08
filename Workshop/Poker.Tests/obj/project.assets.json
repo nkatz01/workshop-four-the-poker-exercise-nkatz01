@@ -2068,6 +2068,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "Poker/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Poker.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Poker.dll": {}
+        }
       }
     }
   },
@@ -6924,6 +6934,11 @@
         "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "Poker/1.0.0": {
+      "type": "project",
+      "path": "../Poker/Poker.csproj",
+      "msbuildProject": "../Poker/Poker.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6932,6 +6947,7 @@
       "MSTest.TestAdapter >= 2.0.0",
       "MSTest.TestFramework >= 2.0.0",
       "Microsoft.NET.Test.Sdk >= 16.2.0",
+      "Poker >= 1.0.0",
       "coverlet.collector >= 1.0.1"
     ]
   },
@@ -6962,7 +6978,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj": {
+              "projectPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
