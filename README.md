@@ -1,4 +1,4 @@
-# Functional Programming Workshop
+# Functional Programming Workshop — Worksheet Four
 
 Welcome to the functional programming workshop which will hopefully consolidate and expand your knowledge of FP techniques using `C#`.
 
@@ -8,12 +8,8 @@ You need to have read, understood, and experimented with the materials we have p
 
 ## Aims and objectives
 
-The aim of this workshop is to familiarise you with Functional Programming techniques via `C#`.
-We use the vehicle of a "real" application, that of a poker scoring game (it does not play the game).
-We will explore the advantages/disadvantages of the functional programming approach as compared to imperative programming.
-
-We will also that this as an opportunity to practice the extreme programming technique of *pair programming*.
-
+The aim of this workshop is to familiarise you with Functional Programming techniques via `C#`.  
+We will also that this as an opportunity to practice the extreme programming technique of *pair programming*.  
 We will examine the following topics:
 
 + Immutable types,
@@ -34,11 +30,42 @@ Each *exercise* builds upon your answer to the previous exercise.
 You will be adding and modifying your various methods/classes/tests.
 You should "`add`" and "`commit`" to your repository as you complete each exercise; in that way we can see  the progression of your code.
 
+## Keeping in Sync
+
+Once you have accepted and cloned the workshop you will need to add the source repository so that you can `pull` additional solutions.
+To link your repository perform the following actions:
+
+1. Issue the command:
+	
+	```
+	git remote add upstream https://github.com/SDP-SPIII-2020/workshop-poker
+	```
+	
+	To add the source repository and to be able to obtain the "updates".
+	
+2. Then issue the command:
+
+	```
+	git pull upstream master
+	```
+
+	when directed to during the workshop.
+
 ## Pairs
 
 Find someone to work with for the duration of this workshop. 
 We will be practicing the extreme programming technique of "pair programming".
 
++ When you work with a partner, you must work together in front of one computer for every problem that week.
++ While you are working, the computer screen should be visible to both people. 
++ One person should type, while the other person observes, critiques and plans what to do next. 
++ You **must** switch roles periodically, say every 15 minutes.
++ Failing to switch partners can result in a reduction of your overall exercise grade for the course.
+
+## The exercises
+
+We use the vehicle of a "real" application, that of a poker scoring game (it does not play the game).
+We will explore the advantages/disadvantages of the functional programming approach as compared to imperative programming.
 
 ### Exercise: Create the "solution" and some "projects"
 
@@ -637,7 +664,7 @@ What can we takeaway from this exercise:
 #### Credits
 
 I've forgotten where I got this example from, at least a couple of sources.
-Note to myself — need to find out and give *credit where credit due*.
+Note to myself — need to find out and give *credit where credit is due*.
 
 [fa]: https://fluentassertions.com
 [vs]: localhost
