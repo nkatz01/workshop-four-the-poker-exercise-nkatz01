@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/Poker.Tests.csproj": {}
+    "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker.Tests\\Poker.Tests.csproj": {}
   },
   "projects": {
-    "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/Poker.Tests.csproj": {
+    "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker.Tests\\Poker.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/Poker.Tests.csproj",
+        "projectUniqueName": "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker.Tests\\Poker.Tests.csproj",
         "projectName": "Poker.Tests",
-        "projectPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/Poker.Tests.csproj",
-        "packagesPath": "/Users/keith/.nuget/packages/",
-        "outputPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/obj/",
+        "projectPath": "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker.Tests\\Poker.Tests.csproj",
+        "packagesPath": "C:\\Users\\nkatz01\\.nuget\\packages\\",
+        "outputPath": "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker.Tests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "/Users/keith/.config/NuGet/NuGet.Config"
+          "C:\\Users\\nkatz01\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -28,8 +25,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj": {
-                "projectPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj"
+              "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker\\Poker.csproj": {
+                "projectPath": "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker\\Poker.csproj"
               }
             }
           }
@@ -79,24 +76,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\nkatz01\\.dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj": {
+    "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker\\Poker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj",
+        "projectUniqueName": "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker\\Poker.csproj",
         "projectName": "Poker",
-        "projectPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj",
-        "packagesPath": "/Users/keith/.nuget/packages/",
-        "outputPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/obj/",
+        "projectPath": "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker\\Poker.csproj",
+        "packagesPath": "C:\\Users\\nkatz01\\.nuget\\packages\\",
+        "outputPath": "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "/Users/keith/.config/NuGet/NuGet.Config"
+          "C:\\Users\\nkatz01\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -132,7 +126,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\nkatz01\\.dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

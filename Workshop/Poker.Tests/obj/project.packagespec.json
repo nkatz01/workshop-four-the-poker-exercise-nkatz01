@@ -1,14 +1,11 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/Poker.Tests.csproj",
+    "projectUniqueName": "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker.Tests\\Poker.Tests.csproj",
     "projectName": "Poker.Tests",
-    "projectPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/Poker.Tests.csproj",
-    "outputPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker.Tests/obj/",
+    "projectPath": "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker.Tests\\Poker.Tests.csproj",
+    "outputPath": "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker.Tests\\obj\\",
     "projectStyle": "PackageReference",
-    "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-    ],
     "originalTargetFrameworks": [
       "netcoreapp3.1"
     ],
@@ -18,8 +15,8 @@
     "frameworks": {
       "netcoreapp3.1": {
         "projectReferences": {
-          "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj": {
-            "projectPath": "/Users/keith/Documents/Courses/sdp-sp3/2020/workshop-poker/Workshop/Poker/Poker.csproj"
+          "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker\\Poker.csproj": {
+            "projectPath": "I:\\gitProjects\\workshop-four-the-poker-exercise-nkatz01\\Workshop\\Poker\\Poker.csproj"
           }
         }
       }
@@ -69,7 +66,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "C:\\Users\\nkatz01\\.dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
     }
   }
 }
