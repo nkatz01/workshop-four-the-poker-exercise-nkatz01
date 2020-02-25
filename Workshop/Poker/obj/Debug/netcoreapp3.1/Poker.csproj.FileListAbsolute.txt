@@ -1,0 +1,10 @@
+C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker\bin\Debug\netcoreapp3.1\Poker.exe
+C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker\bin\Debug\netcoreapp3.1\Poker.deps.json
+C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker\bin\Debug\netcoreapp3.1\Poker.runtimeconfig.json
+C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker\bin\Debug\netcoreapp3.1\Poker.runtimeconfig.dev.json
+C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker\bin\Debug\netcoreapp3.1\Poker.dll
+C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker\bin\Debug\netcoreapp3.1\Poker.pdb
+C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker\obj\Debug\netcoreapp3.1\Poker.AssemblyInfoInputs.cache
+C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker\obj\Debug\netcoreapp3.1\Poker.AssemblyInfo.cs
+C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker\obj\Debug\netcoreapp3.1\Poker.dll
+C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker\obj\Debug\netcoreapp3.1\Poker.pdb
