@@ -46,7 +46,7 @@ Generated\ Files/
 
 # NUnit
 *.VisualState.xml
-TestResult.xml
+
 nunit-*.xml
 
 # Build Results of an ATL Project
@@ -149,9 +149,7 @@ _NCrunch_*
 .*crunch*.local.xml
 nCrunchTemp_*
 
-# MightyMoose
-*.mm.*
-AutoTest.Net/
+
 
 # Web workbench (sass)
 .sass-cache/
@@ -551,7 +549,7 @@ GitHub.sublime-settings
 
 # Visual Studio 2017 auto generated files
 
-# MSTest test Results
+
 
 # NUnit
 
