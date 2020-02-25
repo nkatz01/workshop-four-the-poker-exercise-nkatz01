@@ -18,8 +18,14 @@ namespace Poker
             {
                 Spades, Diamonds, Clubs, Hearts
             }
+    
 
-            public Card(CardValue cardvalue, CardSuit cardsuit)
+        
+         
+        
+       
+
+        public Card(CardValue cardvalue, CardSuit cardsuit)
             {
                 Value = cardvalue;
                 Suit = cardsuit;
@@ -37,13 +43,20 @@ namespace Poker
         private static void Main(string[] args)
         {
             Card c = new Card(CardValue.Ace, CardSuit.Spades);
-            Console.WriteLine(c.ToString());
-          
+            //Console.WriteLine(c.ToString());
+
+            //var hand = new Hand();
+            //hand.Draw(new Card(CardValue.Two, CardSuit.Spades));
+            //hand.Draw(new Card(CardValue.Three, CardSuit.Spades));
+            //hand.Draw(new Card(CardValue.Four, CardSuit.Spades));
+            //hand.Draw(new Card(CardValue.Five, CardSuit.Spades));
+            //hand.Draw(new Card(CardValue.Six, CardSuit.Spades));
+            // hand.GetHandRank();
 
         }
-        
 
-        }
+
+    }
 
         
     
