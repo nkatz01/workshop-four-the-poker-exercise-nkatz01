@@ -6,7 +6,7 @@ using static Poker.Card;
 using System.Linq;
 
 namespace Poker
-{
+{//change c
 	public class Hand 
 	{
 		public enum HandRank
