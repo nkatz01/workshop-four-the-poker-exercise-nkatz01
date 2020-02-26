@@ -6,7 +6,7 @@ using static Poker.Card;
 using System.Linq;
 
 namespace Poker
-{//change c
+{ 
     public class Hand
     {
         public enum HandRank
@@ -41,12 +41,12 @@ namespace Poker
         public int CheckConsec(int stopper, List<CardValue> values)
         {
             values.Sort();
-            int count = 0;
+            int count = 1;
             int i = 0;
 
             while (count < stopper)
             {
-                count = 0;
+                count = 1;
 
                 while (i + 1 < values.Count() && (values[i] - values[i + 1]) == -1)
 
@@ -58,8 +58,9 @@ namespace Poker
 
                 }
 
-                if (i + 1 == values.Count())
-                    break;
+                if (i + 1 == values.Count()) { 
+               
+                    break;}
                 i++;
 
             }
@@ -128,14 +129,62 @@ namespace Poker
                         return HandRank.StraightFlush;
 
                     else
-
+                        Console.WriteLine(count);
                         return HandRank.Flush;
 
 
                 }
             }
             else
-                return HandRank.HighCard;
+            {
+               List<CardValue> newValues = new List<CardValue>();
+                Console.WriteLine("I'm here");
+                foreach (var suit in summary)
+                {
+
+                    newValues = newValues.Concat(suit.suitValue ).ToList();
+                //   Console.WriteLine(newValues.Count());
+
+                  //  var resutls =  values.Concat( suit.suitValue );
+                }
+
+                //  Console.WriteLine(newValues.Count() );
+
+                var fourOfAKind = newValues.GroupBy(x => x)
+                        .Where(group => group.Count() >= 4)
+                        .Select(group => group.Key).ToList();
+                var threeOfAKind = newValues.GroupBy(x => x)
+                      .Where(group => group.Count() >= 3)
+                      .Select(group => group.Key).ToList();
+
+                var  twoOfAKind = newValues.GroupBy(x => x)
+                      .Where(group => group.Count() >= 2)
+                      .Select(group => group.Key).Except(threeOfAKind).ToList();
+                //  Console.WriteLine(fourOfAKind.Count());
+
+                if (fourOfAKind.Count()>0)
+                 
+                    return HandRank.FourOfAKind;
+                if (twoOfAKind.Count() > 0 && threeOfAKind.Count() > 0)
+                    return HandRank.FullHouse;
+              
+                //foreach (CardValue v in newValues)
+                //{
+               // Console.WriteLine(String.Join(",", repeatedValues));
+                //}
+                //  Console.WriteLine("{0}", String.Join(",", repeatedValues ));
+
+
+                int count = CheckConsec(5, (List<CardValue>)newValues);
+                if (count >= 5 || CheckAceFirstInSequenc((List<CardValue>)newValues))
+                    return HandRank.Straight;
+                else {
+                         if (threeOfAKind.Count() > 0)
+                        return HandRank.ThreeOfAKind;
+                    else
+                        return HandRank.HighCard;
+                }
+            }
 
         }
 

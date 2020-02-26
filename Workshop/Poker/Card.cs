@@ -45,13 +45,20 @@ namespace Poker
             Card c = new Card(CardValue.Ace, CardSuit.Spades);
             Console.WriteLine(c.ToString());
 
+            var hand = new Hand();
+            hand.Draw(new Card(CardValue.Eight, CardSuit.Clubs));
+            hand.Draw(new Card(CardValue.Jack, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Hearts));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
+
             //var hand = new Hand();
+            //hand.Draw(new Card(CardValue.Two, CardSuit.Hearts));
             //hand.Draw(new Card(CardValue.Three, CardSuit.Spades));
-            //hand.Draw(new Card(CardValue.Two, CardSuit.Spades));
-            //hand.Draw(new Card(CardValue.Four, CardSuit.Hearts));
-            //hand.Draw(new Card(CardValue.Five, CardSuit.Spades));
-            //hand.Draw(new Card(CardValue.Seven, CardSuit.Spades));
-            //hand.GetHandRank();
+            //hand.Draw(new Card(CardValue.Four, CardSuit.Diamonds));
+            //hand.Draw(new Card(CardValue.Five, CardSuit.Clubs));
+            //hand.Draw(new Card(CardValue.Ace, CardSuit.Spades));
+            Console.WriteLine(hand.GetHandRank());
 
 
            

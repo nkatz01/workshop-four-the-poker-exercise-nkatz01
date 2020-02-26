@@ -4,7 +4,7 @@ using static Poker.Card;
 
 namespace Poker.Tests
 {
-	//change b
+	 
     [TestClass]
     public class CardTests
     {
