@@ -38,10 +38,10 @@ namespace Poker
         }
 
         //public int CompareTo(Card other) { return other.Value.CompareTo(other.Value); }
-        public int CheckConsec(int stopper, List<int> values)
+        public int CheckConsec(int stopper, List<CardValue> values)
         {
             values.Sort();
-           int count = 0;
+            int count = 0;
             int i = 0;
 
             while (count < stopper)
@@ -66,9 +66,9 @@ namespace Poker
             return count;
         }
 
-        public bool CheckAceFirstInSequenc(List<int> values)
+        public bool CheckAceFirstInSequenc(List<CardValue> values)
         {
-          return  (new List<int> { 2, 3, 4, 5, (int)CardValue.Ace }.All(x => values.Any(y => y == x)));
+            return (new List<CardValue> { CardValue.Two, CardValue.Three, CardValue.Four, CardValue.Five, CardValue.Ace }.All(x => values.Any(y => y == x)));
 
         }
         public List<int> StripIntVals(List<Card> Cards)
@@ -78,93 +78,68 @@ namespace Poker
 
         }
 
-        public void GetHandRank()
+        public HandRank GetHandRank()
         {
             if (Cards.Count() < 5)
             {
                 throw new Exception("Cannot query HandRank for less than 5 cards");
             }
-            List<int> values  ;
 
-            //IEnumerable<Card> filtered = Cards.FindAll(i => i.Suit == CardSuit.Spades && !(i.Suit == CardSuit.Clubs || i.Suit == CardSuit.Hearts  || i.Suit == CardSuit.Diamonds)
-            //|| (i.Suit == CardSuit.Hearts && !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Clubs || i.Suit == CardSuit.Diamonds))
-            //|| (i.Suit == CardSuit.Clubs && !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Hearts || i.Suit == CardSuit.Diamonds))
-            //|| (i.Suit == CardSuit.Diamonds && !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Hearts || i.Suit == CardSuit.Clubs))
-            //);
-          var query = Cards.GroupBy(i =>  i.Suit, i => (int)i.Value );
-            foreach (IGrouping<CardSuit, int> g in query)
+            List<CardValue> values = new List<CardValue>();
+            bool fiveOfSameSuit = false;
+
+            var summary = Cards.GroupBy(i => i.Suit, i => i.Value, (suitName, suitVal) => new
             {
-                // Print the key value of the IGrouping.
-                Console.WriteLine(g.Key);
-                // Iterate over each value in the 
-                // IGrouping and print the value.
-                foreach (int v in g)
-                    Console.WriteLine("  {0}", v);
+                key = suitName,
+                Count = suitVal.Count(),
+                Min = suitVal.Min(),
+                Max = suitVal.Max(),
+                suitValue = suitVal
+            });
+
+
+
+            foreach (var suit in summary)
+            {
+                if (suit.Count >= 5)//has 5 of same suit
+                {
+                    fiveOfSameSuit = true;
+                    values = suit.suitValue.ToList();
+                    break;
+                }
+
             }
-            // Console.WriteLine(filtered.Count());
-            ////foreach(var v in filtered)
-            ////{
-            ////    Console.WriteLine(v);
-            ////}
 
-            //if (filtered.Count() >= 5)
-            //{
-            //    values = StripIntVals(filtered.ToList());
-            //    if (values.Contains(10) && values.Contains(11) && values.Contains(12) && values.Contains(13) && values.Contains(14))
+            if (fiveOfSameSuit)
+            {
 
-            //        return HandRank.RoyalFlush;
+                if (new List<CardValue> { CardValue.Ten, CardValue.Jack, CardValue.Queen, CardValue.King, CardValue.Ace }.All(x => values.Any(y => y == x)))
+                    return HandRank.RoyalFlush;
 
+                else
+                {
 
-            //    else
-            //    {
-
-            //        int count = CheckConsec(5, values);
+                    int count = CheckConsec(5, (List<CardValue>)values);
 
 
-            //        if (count >= 5 || CheckAceFirstInSequenc(values))
-            //        {
+                    if (count >= 5 || CheckAceFirstInSequenc((List<CardValue>)values))
 
 
+                        return HandRank.StraightFlush;
+
+                    else
+
+                        return HandRank.Flush;
 
 
-            //            return HandRank.StraightFlush;
-            //        }
-
-
-
-
-
-            //        else
-            //        {
-            //            Console.WriteLine(CheckAceFirstInSequenc(values));
-            //            return HandRank.Flush;
-            //        }
-
-            //    }
-            //}
-
-            //else
-            //{
-            //    values = StripIntVals(Cards);
-            //    int count = CheckConsec(5, values);
-
-
-            //    if (count >= 5 || CheckAceFirstInSequenc(values))
-            //    {
-
-            //        return HandRank.Straight;
-            //    }
-            //    else {
-            //        return HandRank.HighCard;
-            //    }
-            //}
-
-
-
+                }
+            }
+            else
+                return HandRank.HighCard;
 
         }
 
-       
+
 
         public void Draw(Card card)
         {
