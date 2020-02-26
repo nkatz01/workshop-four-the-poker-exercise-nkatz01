@@ -7,121 +7,168 @@ using System.Linq;
 
 namespace Poker
 {//change c
-	public class Hand 
-	{
-		public enum HandRank
-		{
-			HighCard ,
-			Pair,
-			TwoPair,
-			ThreeOfAKind,
-			Straight,
-			Flush,
-			FullHouse,
-			FourOfAKind,
-			StraightFlush,
-			RoyalFlush
-		}
+    public class Hand
+    {
+        public enum HandRank
+        {
+            HighCard,
+            Pair,
+            TwoPair,
+            ThreeOfAKind,
+            Straight,
+            Flush,
+            FullHouse,
+            FourOfAKind,
+            StraightFlush,
+            RoyalFlush
+        }
 
-		public List<Card> Cards { get; }
-		public Hand()
-		{
-			Cards = new List<Card>();
-		}
+        public List<Card> Cards { get; }
+        public Hand()
+        {
+            Cards = new List<Card>();
+        }
 
-		public Card HighCard()
-		{
+        public Card HighCard()
+        {
 
-			int  HighestValue = (int)Cards.Max(i => i.Value);
-			Card card = Cards.First(obj =>(int)obj.Value == HighestValue);
-			return card;
-		}
+            int HighestValue = (int)Cards.Max(i => i.Value);
+            Card card = Cards.First(obj => (int)obj.Value == HighestValue);
+            return card;
+        }
 
-		//public int CompareTo(Card other) { return other.Value.CompareTo(other.Value); }
+        //public int CompareTo(Card other) { return other.Value.CompareTo(other.Value); }
+        public int CheckConsec(int stopper, List<int> values)
+        {
+            values.Sort();
+           int count = 0;
+            int i = 0;
 
+            while (count < stopper)
+            {
+                count = 0;
 
-		public HandRank GetHandRank()
-		{
-			 
-			IEnumerable<Card> filtered = Cards.FindAll(i =>  i.Suit == CardSuit.Spades ||   (i.Suit == CardSuit.Hearts &&  !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Clubs ||  i.Suit == CardSuit.Diamonds))
-			|| (i.Suit == CardSuit.Clubs && !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Hearts || i.Suit == CardSuit.Diamonds))
-			|| (i.Suit == CardSuit.Diamonds && !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Hearts || i.Suit == CardSuit.Clubs))
-			);
-			if (filtered.Count() >= 5) {
-				List<int> values = Cards.Select(crd => (int)crd.Value).ToList();
-				if (values.Contains(10) && values.Contains(11) && values.Contains(12) && values.Contains(13) && values.Contains(14))
-					return HandRank.RoyalFlush;
-				else
-				{
+                while (i + 1 < values.Count() && (values[i] - values[i + 1]) == -1)
 
-					var result = values.Zip(values.Skip(1), (l, r) => l + 1 == r);
+                {
+                    count++;
+                    i++;
+                    if (count >= stopper)
+                        break;
 
-					//var sequences = values.GroupBy(num => Enumerable.Range(num, int.MaxValue - num + 1)
-					//						   .TakeWhile(values.Contains)
-					//						   .Last())  //use the last member of the consecutive sequence as the key
-					// .Where(seq => seq.Count() >= 4)
-					// .Select(seq => seq.OrderBy(num => num)); // not necessary unless ordering is desirable inside e
-					//foreach (IOrderedEnumerable<int> s in sequences)
-					//{
-					//	Console.WriteLine(s);
-					//}
-					//Console.WriteLine(sequences.Count());
+                }
 
-					//foreach (var n in result)
-					//{
-					//	Console.WriteLine("{0}", string.Join(",", n));
-						
-					//}
-					return HandRank.Flush;
-				}
+                if (i + 1 == values.Count())
+                    break;
+                i++;
 
-			}
-			//https://stackoverflow.com/questions/3844611/detecting-sequence-of-at-least-3-sequential-numbers-from-a-given-list
-			//static IEnumerable<int> Iter(<IEnumerable<IOrderedEnumerable>int>> collec)
-			//{
-			//	foreach ( int n in collec)
-			//	{
-			//		yield return n;
-			//	}
-			//}
+            }
+            return count;
+        }
 
-			//IEnumerable<Card> filteredSpades = Cards.Where(i => i.Suit == CardSuit.Spades);
-			//	IEnumerable<Card> filteredHearts = Cards.Where(i => i.Suit == CardSuit.Hearts);
-			//IEnumerable<Card> filteredClubs = Cards.Where(i => i.Suit == CardSuit.Clubs);
-			//IEnumerable<Card> filteredDiamonds = Cards.Where(i => i.Suit == CardSuit.Diamonds);
-			//if (filteredClubs.Contains(i => i.Value = ))
+        public bool CheckAceFirstInSequenc(List<int> values)
+        {
+          return  (new List<int> { 2, 3, 4, 5, (int)CardValue.Ace }.All(x => values.Any(y => y == x)));
+
+        }
+        public List<int> StripIntVals(List<Card> Cards)
+        {
+            return Cards.Select(crd => (int)crd.Value).ToList();
 
 
+        }
+
+        public void GetHandRank()
+        {
+            if (Cards.Count() < 5)
+            {
+                throw new Exception("Cannot query HandRank for less than 5 cards");
+            }
+            List<int> values  ;
+
+            //IEnumerable<Card> filtered = Cards.FindAll(i => i.Suit == CardSuit.Spades && !(i.Suit == CardSuit.Clubs || i.Suit == CardSuit.Hearts  || i.Suit == CardSuit.Diamonds)
+            //|| (i.Suit == CardSuit.Hearts && !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Clubs || i.Suit == CardSuit.Diamonds))
+            //|| (i.Suit == CardSuit.Clubs && !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Hearts || i.Suit == CardSuit.Diamonds))
+            //|| (i.Suit == CardSuit.Diamonds && !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Hearts || i.Suit == CardSuit.Clubs))
+            //);
+          var query = Cards.GroupBy(i =>  i.Suit, i => (int)i.Value );
+            foreach (IGrouping<CardSuit, int> g in query)
+            {
+                // Print the key value of the IGrouping.
+                Console.WriteLine(g.Key);
+                // Iterate over each value in the 
+                // IGrouping and print the value.
+                foreach (int v in g)
+                    Console.WriteLine("  {0}", v);
+            }
+            // Console.WriteLine(filtered.Count());
+            ////foreach(var v in filtered)
+            ////{
+            ////    Console.WriteLine(v);
+            ////}
+
+            //if (filtered.Count() >= 5)
+            //{
+            //    values = StripIntVals(filtered.ToList());
+            //    if (values.Contains(10) && values.Contains(11) && values.Contains(12) && values.Contains(13) && values.Contains(14))
+
+            //        return HandRank.RoyalFlush;
+
+
+            //    else
+            //    {
+
+            //        int count = CheckConsec(5, values);
+
+
+            //        if (count >= 5 || CheckAceFirstInSequenc(values))
+            //        {
 
 
 
 
-			//bool flush = (Cards.Count(i => i.Suit == CardSuit.Spades) >= 5
-			//		|| Cards.Count(i => i.Suit == CardSuit.Hearts) >= 5
-			//			|| Cards.Count(i => i.Suit == CardSuit.Clubs) >= 5
-			//		|| Cards.Count(i => i.Suit == CardSuit.Diamonds) >= 5);
-			//bool royalFlush = flush & Cards.
-
-			//return HandRank.Flush;
-
-			//	Card card = Cards.Find(i => i.Value == CardValue.Ten);
-
-			//if (card != null)
-			//{
-			//else if (Cards.Count(i => i.Suit == CardSuit.Spades) >= 5)
-
-			else
-				return HandRank.HighCard;
-		
-
-
-		}
+            //            return HandRank.StraightFlush;
+            //        }
 
 
 
-		public void Draw(Card card)
-		{
-			Cards.Add(card);
-		}
-	}
+
+
+            //        else
+            //        {
+            //            Console.WriteLine(CheckAceFirstInSequenc(values));
+            //            return HandRank.Flush;
+            //        }
+
+            //    }
+            //}
+
+            //else
+            //{
+            //    values = StripIntVals(Cards);
+            //    int count = CheckConsec(5, values);
+
+
+            //    if (count >= 5 || CheckAceFirstInSequenc(values))
+            //    {
+
+            //        return HandRank.Straight;
+            //    }
+            //    else {
+            //        return HandRank.HighCard;
+            //    }
+            //}
+
+
+
+
+        }
+
+       
+
+        public void Draw(Card card)
+        {
+            Cards.Add(card);
+        }
+    }
 }

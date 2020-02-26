@@ -41,29 +41,44 @@ namespace Poker.Tests
             Assert.AreEqual(CardValue.King, hand.HighCard().Value);
         }
 
+
+
         //[TestMethod]
         //public void CanScoreHighCard()
         //{
         //    var hand = new Hand();
-        //    //hand.Draw(new Card(CardValue.Seven, CardSuit.Spades));
+        //   hand.Draw(new Card(CardValue.Seven, CardSuit.Spades));
         //    hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
-        //    //    hand.Draw(new Card(CardValue.Five,  CardSuit.Hearts));
-        //    //    hand.Draw(new Card(CardValue.King,  CardSuit.Hearts));
-        //    //    hand.Draw(new Card(CardValue.Two,   CardSuit.Hearts));
+        //         hand.Draw(new Card(CardValue.Five,  CardSuit.Hearts));
+        //        hand.Draw(new Card(CardValue.King,  CardSuit.Hearts));
+        //         hand.Draw(new Card(CardValue.Two,   CardSuit.Hearts));
         //    Assert.AreEqual(HandRank.HighCard, hand.GetHandRank());
         //}
-
-        //[TestMethod]
+        //   [TestMethod]
         //public void CanScoreFlush()
         //{
         //    var hand = new Hand();
         //    hand.Draw(new Card(CardValue.Two, CardSuit.Spades));
         //    hand.Draw(new Card(CardValue.Three, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Ace, CardSuit.Spades));
+        //    hand.Draw(new Card(CardValue.Ace, CardSuit.Clubs));
         //    hand.Draw(new Card(CardValue.Five, CardSuit.Spades));
         //    hand.Draw(new Card(CardValue.Six, CardSuit.Spades));
         //    Assert.AreEqual(HandRank.Flush, hand.GetHandRank());
         //}
+
+        //[TestMethod]
+        //public void CanScoreStraightFlush()
+        //{
+        //    var hand = new Hand();
+        //    hand.Draw(new Card(CardValue.Two, CardSuit.Spades));
+        //    hand.Draw(new Card(CardValue.Three, CardSuit.Spades));
+        //    hand.Draw(new Card(CardValue.Ace, CardSuit.Spades));
+        //    hand.Draw(new Card(CardValue.Four, CardSuit.Spades));
+        //    hand.Draw(new Card(CardValue.Five, CardSuit.Spades));
+        //    Assert.AreEqual(HandRank.StraightFlush, hand.GetHandRank());
+        //}
+
+
 
         //[TestMethod]
         //public void CanScoreRoyalFlush()
