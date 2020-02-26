@@ -54,25 +54,32 @@ namespace Poker
 				else
 				{
 
-					var sequences = values.Distinct()
-					 .GroupBy(num => Enumerable.Range(num, int.MaxValue - num + 1)
-											   .TakeWhile(values.Contains)
-											   .Last())  //use the last member of the consecutive sequence as the key
-					 .Where(seq => seq.Count() >= 3)
-					 .Select(seq => seq.OrderBy(num => num)); // not necessary unless ordering is desirable inside e
-															  //foreach (IOrderedEnumerable<int> s in sequences)
-															  //{
-															  //	Console.WriteLine(s);
-															  //}
-				//	Console.WriteLine("{0}", string.Join(",", values));
+					var result = values.Zip(values.Skip(1), (l, r) => l + 1 == r);
+
+					//var sequences = values.GroupBy(num => Enumerable.Range(num, int.MaxValue - num + 1)
+					//						   .TakeWhile(values.Contains)
+					//						   .Last())  //use the last member of the consecutive sequence as the key
+					// .Where(seq => seq.Count() >= 4)
+					// .Select(seq => seq.OrderBy(num => num)); // not necessary unless ordering is desirable inside e
+					//foreach (IOrderedEnumerable<int> s in sequences)
+					//{
+					//	Console.WriteLine(s);
+					//}
+					//Console.WriteLine(sequences.Count());
+
+					//foreach (var n in result)
+					//{
+					//	Console.WriteLine("{0}", string.Join(",", n));
+						
+					//}
 					return HandRank.Flush;
 				}
 
 			}
 			//https://stackoverflow.com/questions/3844611/detecting-sequence-of-at-least-3-sequential-numbers-from-a-given-list
-			//static IOrderedEnumerable<int> Iter(IOrderedEnumerable<int> collec)
+			//static IEnumerable<int> Iter(<IEnumerable<IOrderedEnumerable>int>> collec)
 			//{
-			//	foreach (int n in collec)
+			//	foreach ( int n in collec)
 			//	{
 			//		yield return n;
 			//	}
