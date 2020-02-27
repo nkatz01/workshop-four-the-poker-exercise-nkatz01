@@ -113,6 +113,7 @@ namespace Poker.Tests
         }
 
 
+ 
         [TestMethod]
         public void CanScorePair()
         {
@@ -137,6 +138,7 @@ namespace Poker.Tests
             hand.GetHandRank().Should().Be(HandRank.TwoPair);
         }
 
+ 
 
         [TestMethod]
         public void CanScoreThreeOfAKind()

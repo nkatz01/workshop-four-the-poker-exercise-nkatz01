@@ -6,7 +6,8 @@ using static Poker.Card;
 using System.Linq;
 
 namespace Poker
-{
+ {
+ 
     public class Hand
     {
         public enum HandRank
@@ -37,7 +38,9 @@ namespace Poker
             return card;
         }
 
-         public int CheckConsec(int stopper, List<CardValue> values)
+ 
+        public int CheckConsec(int stopper, List<CardValue> values)
+ 
         {
             values.Sort();
             int count = 1;
@@ -62,6 +65,7 @@ namespace Poker
 
                     break;
                 }
+
                 i++;
 
             }
@@ -88,7 +92,7 @@ namespace Poker
             }
 
             List<CardValue> values = new List<CardValue>();
-            // List<CardValue> newValues = new List<CardValue>();
+ 
             bool fiveOfSameSuit = false;
 
             var summary = Cards.GroupBy(i => i.Suit, i => i.Value, (suitName, suitVal) => new
@@ -106,6 +110,7 @@ namespace Poker
             {
                 if (suit.Count >= 5)//has 5 of same suit
                 {
+ 
                     values = suit.suitValue.ToList();//collect card values as well
                     fiveOfSameSuit = true;
                     break;
@@ -178,16 +183,12 @@ namespace Poker
             return HandRank.HighCard;
 
 
+ 
 
         }
 
 
  
-
-
-
-      
-
         public void Draw(Card card)
         {
             Cards.Add(card);
