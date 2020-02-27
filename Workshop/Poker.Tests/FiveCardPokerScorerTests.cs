@@ -39,32 +39,32 @@ namespace Poker.Tests
         //     GetHandRank(hand.Cards).Should().Be(HandRank.HighCard);
         //}
 
-        //[TestMethod]
-        //public void CanScoreFlush()
-        //{
-        //    var hand = new Hand();
-        //    hand.Draw(new Card(CardValue.Two, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Three, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Ace, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Five, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Six, CardSuit.Spades));
-        //    //Assert.AreEqual(HandRank.Flush, hand.GetHandRank());
-        //    GetHandRank(hand.Cards).Should().Be(HandRank.Flush);
-        //}
+        [TestMethod]
+        public void CanScoreFlush()
+        {
+            var hand = new Hand();
+            hand.Draw(new Card(CardValue.Two, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Three, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Ace, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Five, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Six, CardSuit.Spades));
+            //Assert.AreEqual(HandRank.Flush, hand.GetHandRank());
+            GetHandRank(hand.Cards).Should().Be(HandRank.Flush);
+        }
 
-        //[TestMethod]
-        //public void CanScoreStraightFlush()
-        //{
-        //    var hand = new Hand();
-        //    hand.Draw(new Card(CardValue.Two, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Three, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Six, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Four, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Five, CardSuit.Spades));
-        //    //  Assert.AreEqual(HandRank.StraightFlush, hand.GetHandRank());
-        //    GetHandRank(hand.Cards).Should().Be(HandRank.StraightFlush);
+        [TestMethod]
+        public void CanScoreStraightFlush()
+        {
+            var hand = new Hand();
+            hand.Draw(new Card(CardValue.Two, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Three, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Six, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Four, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Five, CardSuit.Spades));
+            //  Assert.AreEqual(HandRank.StraightFlush, hand.GetHandRank());
+            GetHandRank(hand.Cards).Should().Be(HandRank.StraightFlush);
 
-        //}
+        }
 
 
 
@@ -81,82 +81,82 @@ namespace Poker.Tests
             GetHandRank(hand.Cards).Should().Be(HandRank.RoyalFlush);
         }
 
-        //[TestMethod]
-        //public void CanScoreStraight()
-        //{
-        //    var hand = new Hand();
-        //    hand.Draw(new Card(CardValue.Two, CardSuit.Hearts));
-        //    hand.Draw(new Card(CardValue.Three, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Four, CardSuit.Diamonds));
-        //    hand.Draw(new Card(CardValue.Five, CardSuit.Clubs));
-        //    hand.Draw(new Card(CardValue.Ace, CardSuit.Spades));
-        //    // Assert.AreEqual(HandRank.RoyalFlush, hand.GetHandRank());
-        //    GetHandRank(hand.Cards).Should().Be(HandRank.Straight);
-        //}
+        [TestMethod]
+        public void CanScoreStraight()
+        {
+            var hand = new Hand();
+            hand.Draw(new Card(CardValue.Two, CardSuit.Hearts));
+            hand.Draw(new Card(CardValue.Three, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Four, CardSuit.Diamonds));
+            hand.Draw(new Card(CardValue.Five, CardSuit.Clubs));
+            hand.Draw(new Card(CardValue.Ace, CardSuit.Spades));
+            // Assert.AreEqual(HandRank.RoyalFlush, hand.GetHandRank());
+            GetHandRank(hand.Cards).Should().Be(HandRank.Straight);
+        }
 
 
 
-        //[TestMethod]
-        //public void CanScorePair()
-        //{
-        //    var hand = new Hand();
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
-        //    hand.Draw(new Card(CardValue.Five, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Nine, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Hearts));
-        //    hand.Draw(new Card(CardValue.Seven, CardSuit.Spades));
-        //    GetHandRank(hand.Cards).Should().Be(HandRank.Pair);
-        //}
+        [TestMethod]
+        public void CanScorePair()
+        {
+            var hand = new Hand();
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
+            hand.Draw(new Card(CardValue.Five, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Nine, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Hearts));
+            hand.Draw(new Card(CardValue.Seven, CardSuit.Spades));
+            GetHandRank(hand.Cards).Should().Be(HandRank.Pair);
+        }
 
-        //[TestMethod]
-        //public void CanScoreTwoPair()
-        //{
-        //    var hand = new Hand();
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
-        //    hand.Draw(new Card(CardValue.Nine, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Nine, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Hearts));
-        //    hand.Draw(new Card(CardValue.Ace, CardSuit.Spades));
-        //    GetHandRank(hand.Cards).Should().Be(HandRank.TwoPair);
-        //}
+        [TestMethod]
+        public void CanScoreTwoPair()
+        {
+            var hand = new Hand();
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
+            hand.Draw(new Card(CardValue.Nine, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Nine, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Hearts));
+            hand.Draw(new Card(CardValue.Ace, CardSuit.Spades));
+            GetHandRank(hand.Cards).Should().Be(HandRank.TwoPair);
+        }
 
 
 
-        //[TestMethod]
-        //public void CanScoreThreeOfAKind()
-        //{
-        //    var hand = new Hand();
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
-        //    hand.Draw(new Card(CardValue.Jack, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Nine, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Hearts));
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
-        //    GetHandRank(hand.Cards).Should().Be(HandRank.ThreeOfAKind);
-        //}
+        [TestMethod]
+        public void CanScoreThreeOfAKind()
+        {
+            var hand = new Hand();
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
+            hand.Draw(new Card(CardValue.Jack, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Nine, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Hearts));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
+            GetHandRank(hand.Cards).Should().Be(HandRank.ThreeOfAKind);
+        }
 
-        //[TestMethod]
-        //public void CanScoreFourOfAKind()
-        //{
-        //    var hand = new Hand();
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
-        //    hand.Draw(new Card(CardValue.Jack, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Hearts));
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
-        //    GetHandRank(hand.Cards).Should().Be(HandRank.FourOfAKind);
-        //}
+        [TestMethod]
+        public void CanScoreFourOfAKind()
+        {
+            var hand = new Hand();
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
+            hand.Draw(new Card(CardValue.Jack, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Hearts));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
+            GetHandRank(hand.Cards).Should().Be(HandRank.FourOfAKind);
+        }
 
-        //[TestMethod]
-        //public void CanScoreFullHouse()
-        //{
-        //    var hand = new Hand();
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
-        //    hand.Draw(new Card(CardValue.Jack, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Jack, CardSuit.Hearts));
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
-        //    GetHandRank(hand.Cards).Should().Be(HandRank.FullHouse);
-        //}
+        [TestMethod]
+        public void CanScoreFullHouse()
+        {
+            var hand = new Hand();
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
+            hand.Draw(new Card(CardValue.Jack, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Jack, CardSuit.Hearts));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Spades));
+            GetHandRank(hand.Cards).Should().Be(HandRank.FullHouse);
+        }
 
     }
 }
