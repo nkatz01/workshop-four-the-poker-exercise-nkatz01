@@ -4,6 +4,7 @@ using static Poker.Card;
 
 namespace Poker.Tests
 {
+	 
     [TestClass]
     public class CardTests
     {
@@ -12,7 +13,7 @@ namespace Poker.Tests
         {
            var card = new Card(CardValue.Ace, CardSuit.Clubs);
 
-          //  var card = new Card( );
+          
             Assert.IsNotNull(card);
             Assert.AreEqual(CardSuit.Clubs, card.Suit);
             Assert.AreEqual(CardValue.Ace, card.Value);

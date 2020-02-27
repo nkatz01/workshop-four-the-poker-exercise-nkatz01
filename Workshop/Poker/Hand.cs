@@ -7,114 +7,190 @@ using System.Linq;
 
 namespace Poker
 {
-	public class Hand 
-	{
-		public enum HandRank
-		{
-			HighCard ,
-			Pair,
-			TwoPair,
-			ThreeOfAKind,
-			Straight,
-			Flush,
-			FullHouse,
-			FourOfAKind,
-			StraightFlush,
-			RoyalFlush
-		}
+    public class Hand
+    {
+        public enum HandRank
+        {
+            HighCard,
+            Pair,
+            TwoPair,
+            ThreeOfAKind,
+            Straight,
+            Flush,
+            FullHouse,
+            FourOfAKind,
+            StraightFlush,
+            RoyalFlush
+        }
 
-		public List<Card> Cards { get; }
-		public Hand()
-		{
-			Cards = new List<Card>();
-		}
+        public List<Card> Cards { get; }
+        public Hand()
+        {
+            Cards = new List<Card>();
+        }
 
-		public Card HighCard()
-		{
+        public Card HighCard()
+        {
 
-			int  HighestValue = (int)Cards.Max(i => i.Value);
-			Card card = Cards.First(obj =>(int)obj.Value == HighestValue);
-			return card;
-		}
+            int HighestValue = (int)Cards.Max(i => i.Value);
+            Card card = Cards.First(obj => (int)obj.Value == HighestValue);
+            return card;
+        }
 
-		//public int CompareTo(Card other) { return other.Value.CompareTo(other.Value); }
+         public int CheckConsec(int stopper, List<CardValue> values)
+        {
+            values.Sort();
+            int count = 1;
+            int i = 0;
 
+            while (count < stopper)
+            {
+                count = 1;
 
-		public HandRank GetHandRank()
-		{
-			 
-			IEnumerable<Card> filtered = Cards.FindAll(i =>  i.Suit == CardSuit.Spades ||   (i.Suit == CardSuit.Hearts &&  !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Clubs ||  i.Suit == CardSuit.Diamonds))
-			|| (i.Suit == CardSuit.Clubs && !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Hearts || i.Suit == CardSuit.Diamonds))
-			|| (i.Suit == CardSuit.Diamonds && !(i.Suit == CardSuit.Spades || i.Suit == CardSuit.Hearts || i.Suit == CardSuit.Clubs))
-			);
-			if (filtered.Count() >= 5) {
-				List<int> values = Cards.Select(crd => (int)crd.Value).ToList();
-				if (values.Contains(10) && values.Contains(11) && values.Contains(12) && values.Contains(13) && values.Contains(14))
-					return HandRank.RoyalFlush;
-				else
-				{
+                while (i + 1 < values.Count() && (values[i] - values[i + 1]) == -1)
 
-					var sequences = values.Distinct()
-					 .GroupBy(num => Enumerable.Range(num, int.MaxValue - num + 1)
-											   .TakeWhile(values.Contains)
-											   .Last())  //use the last member of the consecutive sequence as the key
-					 .Where(seq => seq.Count() >= 3)
-					 .Select(seq => seq.OrderBy(num => num)); // not necessary unless ordering is desirable inside e
-															  //foreach (IOrderedEnumerable<int> s in sequences)
-															  //{
-															  //	Console.WriteLine(s);
-															  //}
-				//	Console.WriteLine("{0}", string.Join(",", values));
-					return HandRank.Flush;
-				}
+                {
+                    count++;
+                    i++;
+                    if (count >= stopper)
+                        break;
 
-			}
-			//https://stackoverflow.com/questions/3844611/detecting-sequence-of-at-least-3-sequential-numbers-from-a-given-list
-			//static IOrderedEnumerable<int> Iter(IOrderedEnumerable<int> collec)
-			//{
-			//	foreach (int n in collec)
-			//	{
-			//		yield return n;
-			//	}
-			//}
+                }
 
-			//IEnumerable<Card> filteredSpades = Cards.Where(i => i.Suit == CardSuit.Spades);
-			//	IEnumerable<Card> filteredHearts = Cards.Where(i => i.Suit == CardSuit.Hearts);
-			//IEnumerable<Card> filteredClubs = Cards.Where(i => i.Suit == CardSuit.Clubs);
-			//IEnumerable<Card> filteredDiamonds = Cards.Where(i => i.Suit == CardSuit.Diamonds);
-			//if (filteredClubs.Contains(i => i.Value = ))
+                if (i + 1 == values.Count())
+                {
+
+                    break;
+                }
+                i++;
+
+            }
+            return count;
+        }
+
+        public bool CheckAceFirstInSequenc(List<CardValue> values)
+        {
+            return (new List<CardValue> { CardValue.Two, CardValue.Three, CardValue.Four, CardValue.Five, CardValue.Ace }.All(x => values.Any(y => y == x)));
+
+        }
+        public List<int> StripIntVals(List<Card> Cards)
+        {
+            return Cards.Select(crd => (int)crd.Value).ToList();
 
 
+        }
 
+        public HandRank GetHandRank()
+        {
+            if (Cards.Count() < 5)
+            {
+                throw new Exception("Cannot query HandRank for less than 5 cards");
+            }
 
+            List<CardValue> values = new List<CardValue>();
+            // List<CardValue> newValues = new List<CardValue>();
+            bool fiveOfSameSuit = false;
 
-
-			//bool flush = (Cards.Count(i => i.Suit == CardSuit.Spades) >= 5
-			//		|| Cards.Count(i => i.Suit == CardSuit.Hearts) >= 5
-			//			|| Cards.Count(i => i.Suit == CardSuit.Clubs) >= 5
-			//		|| Cards.Count(i => i.Suit == CardSuit.Diamonds) >= 5);
-			//bool royalFlush = flush & Cards.
-
-			//return HandRank.Flush;
-
-			//	Card card = Cards.Find(i => i.Value == CardValue.Ten);
-
-			//if (card != null)
-			//{
-			//else if (Cards.Count(i => i.Suit == CardSuit.Spades) >= 5)
-
-			else
-				return HandRank.HighCard;
-		
-
-
-		}
+            var summary = Cards.GroupBy(i => i.Suit, i => i.Value, (suitName, suitVal) => new
+            {
+                key = suitName,
+                Count = suitVal.Count(),
+                Min = suitVal.Min(),
+                Max = suitVal.Max(),
+                suitValue = suitVal
+            });
 
 
 
-		public void Draw(Card card)
-		{
-			Cards.Add(card);
-		}
-	}
+            foreach (var suit in summary)
+            {
+                if (suit.Count >= 5)//has 5 of same suit
+                {
+                    values = suit.suitValue.ToList();//collect card values as well
+                    fiveOfSameSuit = true;
+                    break;
+                }
+            }
+            if (values.Count() == 0)
+            { //didn't find  five of same suit
+                foreach (var suit in summary)
+                {
+
+                    values = values.Concat(suit.suitValue).ToList();
+                   
+                }
+            }
+
+            if (new List<CardValue> { CardValue.Ten, CardValue.Jack, CardValue.Queen, CardValue.King, CardValue.Ace }.All(x => values.Any(y => y == x)))
+                return HandRank.RoyalFlush;
+
+
+
+            int count = CheckConsec(5, (List<CardValue>)values);//maybe has consec of same suit
+
+
+            if (fiveOfSameSuit && (count >= 5 || CheckAceFirstInSequenc((List<CardValue>)values)))
+
+                return HandRank.StraightFlush;
+
+
+
+          
+            var allInGroups = values.GroupBy(x => x);    //maybe has four, full(3 & 2) of a kind?
+            var fourOfAKind = allInGroups.Where(group => group.Count() >= 4).Select(group => group.Key).ToList();
+            if (fourOfAKind.Count() > 0)
+
+                return HandRank.FourOfAKind;
+
+            var threeOfAKind = allInGroups.Where(group => group.Count() >= 3).Select(group => group.Key).ToList();
+
+            var twoOfAKind = allInGroups.Where(group => group.Count() >= 2).Select(group => group.Key).Except(threeOfAKind).ToList();
+
+            if (twoOfAKind.Count() > 0 && threeOfAKind.Count() > 0)
+
+                return HandRank.FullHouse;
+
+           
+
+            if (fiveOfSameSuit)//any card
+
+                return HandRank.Flush;
+
+          
+            if (count >= 5 || CheckAceFirstInSequenc((List<CardValue>)values))  //maybe consec of any suit
+                return HandRank.Straight;
+
+            if (threeOfAKind.Count() > 0)
+                return HandRank.ThreeOfAKind;
+
+             
+            if (twoOfAKind.Count() == 2)
+
+
+                return HandRank.TwoPair;
+
+            var pair = twoOfAKind.Any(x => !values.Except(twoOfAKind).Contains(x)) && values.Except(twoOfAKind).Distinct().Count() == values.Except(twoOfAKind).Count();
+
+            if (twoOfAKind.Count() > 0 && pair)
+
+                return HandRank.Pair;
+
+            return HandRank.HighCard;
+
+
+
+        }
+
+
+ 
+
+
+
+      
+
+        public void Draw(Card card)
+        {
+            Cards.Add(card);
+        }
+    }
 }

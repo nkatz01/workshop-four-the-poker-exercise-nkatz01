@@ -2,6 +2,7 @@ C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poke
 C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker.Tests\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker.Tests\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker.Tests\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker.Tests\bin\Debug\netcoreapp3.1\Poker.Tests.dll.config
 C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker.Tests\bin\Debug\netcoreapp3.1\Poker.Tests.deps.json
 C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker.Tests\bin\Debug\netcoreapp3.1\Poker.Tests.runtimeconfig.json
 C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker.Tests\bin\Debug\netcoreapp3.1\Poker.Tests.runtimeconfig.dev.json
@@ -97,4 +98,3 @@ C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poke
 C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker.Tests\obj\Debug\netcoreapp3.1\Poker.Tests.csproj.CopyComplete
 C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker.Tests\obj\Debug\netcoreapp3.1\Poker.Tests.dll
 C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker.Tests\obj\Debug\netcoreapp3.1\Poker.Tests.pdb
-C:\Users\Nuchem\Documents\workshop-four-the-poker-exercise-nkatz01\Workshop\Poker.Tests\bin\Debug\netcoreapp3.1\Poker.Tests.dll.config
