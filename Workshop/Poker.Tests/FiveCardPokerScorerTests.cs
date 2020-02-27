@@ -27,17 +27,17 @@ namespace Poker.Tests
             HighCard(hand.Cards).Value.Should().Be(CardValue.King);
         }
 
-        //[TestMethod]
-        //public void CanScoreHighCard()
-        //{
-        //    var hand = new Hand();
-        //    hand.Draw(new Card(CardValue.Seven, CardSuit.Spades));
-        //    hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
-        //    hand.Draw(new Card(CardValue.Five, CardSuit.Hearts));
-        //    hand.Draw(new Card(CardValue.King, CardSuit.Hearts));
-        //    hand.Draw(new Card(CardValue.Two, CardSuit.Hearts));
-        //     GetHandRank(hand.Cards).Should().Be(HandRank.HighCard);
-        //}
+        [TestMethod]
+        public void CanScoreHighCard()
+        {
+            var hand = new Hand();
+            hand.Draw(new Card(CardValue.Seven, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Ten, CardSuit.Clubs));
+            hand.Draw(new Card(CardValue.Five, CardSuit.Hearts));
+            hand.Draw(new Card(CardValue.King, CardSuit.Hearts));
+            hand.Draw(new Card(CardValue.Two, CardSuit.Hearts));
+            GetHandRank(hand.Cards).Should().Be(HandRank.HighCard);
+        }
 
         [TestMethod]
         public void CanScoreFlush()
