@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Poker;
 using static Poker.Card;
+using static Poker.FiveCardPokerScorer;
 using System.Linq;
 
 namespace Poker
@@ -38,11 +39,14 @@ namespace Poker
         //    return card;
         //}
 
- 
-       
+        //private List<(Func<IEnumerable<Card>, bool> eval, HandRank rank)>   Rankings() =>  new List<(Func<IEnumerable<Card>, bool> eval, HandRank rank)>
+        //       {GetHandRank(Cards), 
+
+        //};
 
 
- 
+
+
         public void Draw(Card card)
         {
             Cards.Add(card);
