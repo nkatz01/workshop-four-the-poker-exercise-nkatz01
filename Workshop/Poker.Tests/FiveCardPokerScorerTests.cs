@@ -58,7 +58,7 @@ namespace Poker.Tests
             var hand = new Hand();
             hand.Draw(new Card(CardValue.Two, CardSuit.Spades));
             hand.Draw(new Card(CardValue.Three, CardSuit.Spades));
-            hand.Draw(new Card(CardValue.Six, CardSuit.Spades));
+            hand.Draw(new Card(CardValue.Ace, CardSuit.Spades));
             hand.Draw(new Card(CardValue.Four, CardSuit.Spades));
             hand.Draw(new Card(CardValue.Five, CardSuit.Spades));
             //  Assert.AreEqual(HandRank.StraightFlush, hand.GetHandRank());

@@ -17,7 +17,7 @@ namespace Poker.Tests
         public void CanCreateHand()
         {
             var hand = new Hand();
-            Assert.IsTrue(hand.Cards.Count == 0);
+            Assert.IsTrue(hand.Cards.Count() == 0);
 
         }
         [TestMethod]

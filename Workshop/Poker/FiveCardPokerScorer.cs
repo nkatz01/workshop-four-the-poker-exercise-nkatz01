@@ -11,20 +11,20 @@ namespace Poker
     public static class FiveCardPokerScorer
     {
 
-        //  private static bool Ace2345(IEnumerable<Card> cards) => new List<CardValue> { CardValue.Two, CardValue.Three, CardValue.Four, CardValue.Five, CardValue.Ace}.All(i => cards.Any(x => i == x.Value));
-        private static bool CheckSpecificCards(this List<CardValue> cards1, IEnumerable<Card> cards2) => cards1.All(i => cards2.Any(x => i == x.Value));
+      //  private static bool checkCorner(this IEnumerable<Card> cards) => cards.Skip(1).All(c => c.Value < CardValue.Six) && cards.Any(i => i.Value == CardValue.Ace);
+        private static bool checkCorner(this IEnumerable<Card> cards) => cards.Except(cards.Where(i => i.Value == CardValue.Ace)).All(c => c.Value < CardValue.Six)  && cards.GroupBy(i => i.Value).Select(g => g.Key).Contains(CardValue.Ace);
 
         private static bool AllSameSuit(IEnumerable<Card> cards) => cards.GroupBy(i => i.Suit).Count() == 1;//alternatively HasFlush acheives the same
        // private static bool Ten11121314(IEnumerable<Card> cards) => 
-        private static bool HasRoyalFlush(IEnumerable<Card> cards) => AllSameSuit(cards) && new List<CardValue> { CardValue.Ten, CardValue.Jack, CardValue.Queen, CardValue.King, CardValue.Ace }.CheckSpecificCards(cards); //https://stackoverflow.com/questions/13359327/check-if-listint32-values-are-consecutive/13359693
+        private static bool HasRoyalFlush(IEnumerable<Card> cards) => AllSameSuit(cards) && cards.All(c => c.Value > CardValue.Nine); //https://stackoverflow.com/questions/13359327/check-if-listint32-values-are-consecutive/13359693
 
                //
-private static bool HasStraightFlush(IEnumerable<Card> cards) => AllSameSuit(cards) &&  (cards.Zip(cards.Skip(1), (first, next) => first.Value + 1 == next.Value).All(i => i) || new List<CardValue> { CardValue.Two, CardValue.Three, CardValue.Four, CardValue.Five, CardValue.Ace }.CheckSpecificCards(cards)) ;
+private static bool HasStraightFlush(IEnumerable<Card> cards) => AllSameSuit(cards) &&  (cards.Zip(cards.Skip(1), (first, next) => first.Value + 1 == next.Value).All(i => i) || cards.checkCorner());
         private static bool HasFourOfAKind(IEnumerable<Card> cards) => cards.GroupBy(i => i.Value).Where(group => group.Count()>=4).Count()!=0;
         private static bool HasFullHouse(IEnumerable<Card> cards) => cards.GroupBy(i => i.Value).Where(group => group.Count() == 3).Count() != 0 && cards.GroupBy(i => i.Value).Where(group => group.Count() == 2).Count() != 0;
 
         private static bool HasFlush(IEnumerable<Card> cards) => cards.All(c => cards.First().Suit == c.Suit);
-        private static bool HasStraight(IEnumerable<Card> cards) => (cards.Zip(cards.Skip(1), (first, next) => first.Value + 1 == next.Value).All(i => i) || new List<CardValue> { CardValue.Two, CardValue.Three, CardValue.Four, CardValue.Five, CardValue.Ace }.CheckSpecificCards(cards));
+        private static bool HasStraight(IEnumerable<Card> cards) => cards.Zip(cards.Skip(1), (first, next) => first.Value + 1 == next.Value).All(i => i) || cards.checkCorner();
         private static bool HasThreeOfAKind(IEnumerable<Card> cards) => cards.GroupBy(i => i.Value).Where(group => group.Count() == 3).Count() != 0;
 
         private static bool HasTwoPair(IEnumerable<Card> cards) => cards.GroupBy(i => i.Value).Where(group => group.Count() == 2).Count() ==2;

@@ -25,11 +25,16 @@ namespace Poker
             RoyalFlush
         }
 
-        public List<Card> Cards { get; }
-        public Hand()
-        {
-            Cards = new List<Card>();
-        }
+        //
+
+        //public List<Card> Cards { get; }
+
+        private readonly List<Card> _cards = new List<Card>();
+        public IEnumerable<Card> Cards => _cards;
+        //public Hand()
+        //{
+        //    Cards = new List<Card>();
+        //}
 
         //public Card HighCard()
         //{
@@ -49,7 +54,8 @@ namespace Poker
 
         public void Draw(Card card)
         {
-            Cards.Add(card);
+            //Cards.Add(card);
+            _cards.Add(card);
         }
     }
 }
